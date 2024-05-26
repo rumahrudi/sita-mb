@@ -263,10 +263,13 @@ $(document).ready(function(){
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                // $periode = base64_decode($_GET['periode']);
+                // Periksa apakah 'periode' ada dan tidak null sebelum mendekode
+$periode_encoded = isset($_GET['periode']) ? $_GET['periode'] : null;
+$periode = $periode_encoded !== null ? base64_decode($periode_encoded) : '';
                 $month = date('m');
                 $no=1;
-                     $sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal_sidang` FROM `tb_jadwal_sidang` WHERE id_tugas_akhir = $id");
+                     $sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal_sidang` FROM `tb_jadwal_sidang` WHERE id_tugas_akhir = 480");
                        while($data = mysqli_fetch_assoc($sql)){
                         $periodsidang = $data['periode_sidang'];
                         $idjadwal = $data['id_jadwal'];

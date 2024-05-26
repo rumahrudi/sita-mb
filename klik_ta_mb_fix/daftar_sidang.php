@@ -125,7 +125,7 @@ $nama = $_SESSION['nama'];
   error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
   $tanggal_hari_ini = date("Y-m-d");
 
-  $sql8  = $conn->query("SELECT * FROM tb_jadwal_sidang WHERE id_tugas_akhir = $id ORDER BY id_jadwal DESC LIMIT 1;");
+  $sql8  = $conn->query("SELECT * FROM tb_jadwal_sidang WHERE id_tugas_akhir = '480' ORDER BY id_jadwal DESC LIMIT 1;");
   $data8 = mysqli_fetch_assoc($sql8);
   $id_jadwal = $data8['id_jadwal']; //181
   $penguji_1 = $data8['penguji_1']; // 1
@@ -291,7 +291,7 @@ $nama = $_SESSION['nama'];
                       <?php
                       include 'config.php';
                       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-                      $sql4  = $conn->query("SELECT * FROM tb_tugas_akhir WHERE id_mhs = '$id'");
+                      $sql4  = $conn->query("SELECT * FROM tb_tugas_akhir WHERE id_mhs = '480'");
                       $data4 = mysqli_fetch_assoc($sql4);
                       $id_dosen = $data4['id_dosen'];
                       $id_tugas_akhir = $data4['id_mhs'];

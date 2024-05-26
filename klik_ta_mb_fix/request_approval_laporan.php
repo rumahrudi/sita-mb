@@ -218,7 +218,7 @@ $nama = $_SESSION['nama'];
                       <?php
                       include 'config.php';
                       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-                      $sql  = $conn->query("SELECT * FROM tb_tugas_akhir WHERE id_mhs = '$id'");
+                      $sql  = $conn->query("SELECT * FROM tb_tugas_akhir WHERE id_mhs = '480'");
                       $data = mysqli_fetch_assoc($sql);
                       $id_dosen = $data['id_dosen'];
 

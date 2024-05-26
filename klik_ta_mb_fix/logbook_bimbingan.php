@@ -266,9 +266,10 @@ $nama = $_SESSION['nama'];
                           <?php
                           include 'config.php';
                           error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-                          $id_usulan = $_GET['id_usulan'];
-                          $id_usulan = base64_decode($id_usulan);
-                          $sql  = $conn->query("SELECT * FROM `tb_logbook_ta` WHERE id_mhs= '$id'");
+                          // Pastikan bahwa 'id_usulan' terdefinisi dan tidak null
+                          $id_usulan_encoded = isset($_GET['id_usulan']) ? $_GET['id_usulan'] : null;
+                          $id_usulan = $id_usulan_encoded !== null ? base64_decode($id_usulan_encoded) : '';
+                          $sql  = $conn->query("SELECT * FROM `tb_logbook_ta` WHERE id_mhs= '480'");
                           $no = 1;
                           while ($data = mysqli_fetch_assoc($sql)) {
                             $id_logbook = $data['id_logbook'];
