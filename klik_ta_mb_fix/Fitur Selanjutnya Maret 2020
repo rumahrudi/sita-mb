@@ -1,0 +1,48 @@
+Fitur Selanjutnya Maret 2020
+
+- Penilaian dari reviewer [DONE]
+
+- Komentar reviewer minimal 100 karakter [DONE]
+
+- List hasil penilaian reviewer di Staff p3m
+	- merujuk pada borang 11.1.3 [DONE]
+	- tambahkan biaya rata2 dari reviewer [DONE]
+
+- Penomoran nomor proposal, cth [DONE]
+	- PM - 2020 - 001
+	- PT - 2020 - 001
+	- PK - 2020 - 001
+	- PP - 2020 - 001
+
+- Kode SKIM [DONE]
+	- Murni, PM, PT, PK, PP
+
+- Yang dimunculkan didosen pengusul
+	- Rata-rata biaya yang disetujui [DONE]
+	- Komentar [DONE]
+
+- Proposal yang dinilai dan dilihat oleh reviewer
+	- Hanya substansi Proposal [DONE]
+	- RAB [DONE]
+	- Tanpa identitas (blind review) [DONE]
+
+- Verifikasi (ttd) pada penilaian reviewer 
+
+HARUS DIPERBAIKI 16 maret 2020
+
+- On Reviewer -> On Review [DONE]
+	- Jika Ketua P3M belum memutuskan diterima / ditolak, maka status masih on review dan hasil komentar tidak tampil
+
+- List usulan [DONE]
+	- Diterima hijau, ditolak merah (cek kembali, contrainst masih salah) [DONE]
+	- Status reviewer masih diterima diterima (cek kembali) [DONE]
+
+- Approval ketua P3M
+	- Popup detail, dan hasil review
+	- Masukan berupa Status Diterima/Ditolak atau biaya yang disetujui
+
+NEXT Monitoring
+
+- Laporan Kemajuan
+- Penilaian sesuai Borang
+- Pengusul melihat catatan review dan rekomendasi nya

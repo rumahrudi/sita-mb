@@ -1,0 +1,6 @@
+#directory browsing
+Options All -Indexes
+<Files config.php>
+    order allow,deny
+    deny from all
+</Files>
