@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TugasAkhir | Teknik Informatika</title>
+  <title>Tugas Akhir | Manajemen Bisnis</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -72,7 +72,7 @@ $(document).ready(function() {
       <section class="content-header">
         <h1>
           Sistem Informasi Tugas Akhir
-          <small>Teknik Informatika</small>
+          <small>Manajemen Bisnis</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -114,19 +114,22 @@ $(document).ready(function() {
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                
+                $periode_encoded = isset($_GET['periode']) ? $_GET['periode'] : null;
+                $periode = $periode_encoded !== null ? base64_decode($periode_encoded) : '';
+                
                 $month = date('m');
-                //$month = "01";
                 $year = date('Y');
-                $no=1;
-                     $sql = $conn->query("SELECT *, DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal` FROM `tb_jadwal_sidang` WHERE MONTH(`tanggal_sidang`) = $month AND YEAR(`tanggal_sidang`) = $year");
-                      while($data = mysqli_fetch_assoc($sql)){
-                        $periodsidang = $data['periode_sidang'];
-                        $idjadwal = $data['id_jadwal'];
-
-                        $idmhs= $data['id_tugas_akhir'];
-                        $iddosen = $data['penguji_1'];
-                        $iddosen2 = $data['penguji_2'];
+                $no = 1;
+                
+                $sql = $conn->query("SELECT *, DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal` FROM `tb_jadwal_sidang` WHERE MONTH(`tanggal_sidang`) = $month AND YEAR(`tanggal_sidang`) = $year");
+                while ($data = mysqli_fetch_assoc($sql)) {
+                    $periodsidang = $data['periode_sidang'];
+                    $idjadwal = $data['id_jadwal'];
+                    $idmhs = $data['id_tugas_akhir'];
+                    $iddosen = $data['penguji_1'];
+                    $iddosen2 = $data['penguji_2'];
+                }
 
                         $sql2 = $conn->query("SELECT * FROM `tb_tugas_akhir` WHERE id_mhs = '$idmhs'");
                         $data2 = mysqli_fetch_assoc($sql2);
@@ -153,7 +156,7 @@ $(document).ready(function() {
                         echo '<td >'.$data['jam_sidang'].'</td>';                      
                         echo '</tr>';
                         $no++;                   
-                      }
+                      
               ?>  
                </tbody>
               </table>
