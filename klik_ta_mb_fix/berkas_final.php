@@ -369,8 +369,9 @@ $(document).ready(function(){
                           include 'config.php';
                           error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                           $id = $_SESSION['id_user'];
+                          
 
-                          $sql8  = $conn->query("SELECT * FROM tb_jadwal_sidang WHERE id_tugas_akhir = $id AND jenis_sidang = 'Sidang Akhir' ORDER BY id_jadwal DESC LIMIT 1;");
+                          $sql8  = $conn->query("SELECT * FROM tb_jadwal_sidang WHERE id_tugas_akhir = '480' AND jenis_sidang = 'Sidang Akhir' ORDER BY id_jadwal DESC LIMIT 1;");
                           $data8 = mysqli_fetch_assoc($sql8);
                           $id_jadwal = $data8['id_jadwal']; //181
                           $penguji_1 = $data8['penguji_1']; // 1
