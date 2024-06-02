@@ -209,18 +209,19 @@ $nama = $_SESSION['nama'];
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                $periode = isset($_GET['periode']) ? base64_decode($_GET['periode']) : ''; 
                 $month = date('m');
                 $year = date('Y');
-                $no=1;
-                     $sql = $conn->query("SELECT *, DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal` FROM `tb_jadwal_sidang` WHERE MONTH(`tanggal_sidang`) = $month AND YEAR(`tanggal_sidang`) = $year AND (penguji_1 = $id OR penguji_2 = $id)");
-                      while($data = mysqli_fetch_assoc($sql)){
-                        $periodsidang = $data['periode_sidang'];
-                        $idjadwal = $data['id_jadwal'];
+                $no = 1;
 
-                        $idmhs= $data['id_tugas_akhir'];
-                        $iddosen = $data['penguji_1'];
-                        $iddosen2 = $data['penguji_2'];
+                $sql = $conn->query("SELECT *, DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal` FROM `tb_jadwal_sidang` WHERE MONTH(`tanggal_sidang`) = $month AND YEAR(`tanggal_sidang`) = $year AND (penguji_1 = $id OR penguji_2 = $id)");
+                while ($data = mysqli_fetch_assoc($sql)) {
+                    $periodsidang = $data['periode_sidang'];
+                    $idjadwal = $data['id_jadwal'];
+
+                    $idmhs = $data['id_tugas_akhir'];
+                    $iddosen = $data['penguji_1'];
+                    $iddosen2 = $data['penguji_2'];
 
                         $sql2 = $conn->query("SELECT * FROM `tb_tugas_akhir` WHERE id_mhs = '$idmhs'");
                         $data2 = mysqli_fetch_assoc($sql2);
