@@ -107,7 +107,7 @@ $nama = $_SESSION['nama'];
       <section class="content-header">
         <h1>
           Sistem Informasi Tugas Akhir
-          <small>Manajemen Bisnis</small>
+          <small>Manajemen Bisnis Poltek</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
