@@ -176,7 +176,7 @@ $(document).ready(function() {
       <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.3
       </div>
-     <strong>Copyright &copy;<a href="http://if.polibatam.ac.id/">Jurusan Teknik Informatika</a>. </strong> Developed by <a href="https://www.mendeley.com/profiles/supar-dianto/">Supardianto</a>.
+     <strong>Copyright &copy;<a href="http://if.polibatam.ac.id/">Jurusan Manajemen Bisnis</a>. </strong> Developed by <a href="https://www.mendeley.com/profiles/supar-dianto/">Supardianto</a>.
     </div>
     <!-- /.container -->
   </footer>
