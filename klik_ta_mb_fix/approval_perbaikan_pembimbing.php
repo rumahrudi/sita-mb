@@ -273,15 +273,24 @@ $(document).ready(function(){
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                
+                // Cek apakah $_GET['periode'] ada dan tidak null
+                if (isset($_GET['periode']) && $_GET['periode'] !== null) {
+                    $periode = base64_decode($_GET['periode']);
+                } else {
+                    // Tangani kasus di mana $_GET['periode'] tidak ada atau null
+                    $periode = ''; // atau nilai default yang sesuai
+                }
+                
                 $month = date('m');
-                $no=1;
-                     $sql = $conn->query("SELECT * FROM `tb_jadwal_sidang` WHERE id_tugas_akhir IN (SELECT id_mhs FROM tb_tugas_akhir WHERE id_dosen = $id);");
-                       while($data = mysqli_fetch_assoc($sql)){
-                        $id_mhs = $data['id_tugas_akhir'];
-                        $idjadwal = $data['id_jadwal'];
-                        $penguji_1 = $data['penguji_1'];
-                        $penguji_2 = $data['penguji_2'];
+                $no = 1;
+                
+                $sql = $conn->query("SELECT * FROM `tb_jadwal_sidang` WHERE id_tugas_akhir IN (SELECT id_mhs FROM tb_tugas_akhir WHERE id_dosen = $id);");
+                while ($data = mysqli_fetch_assoc($sql)) {
+                    $id_mhs = $data['id_tugas_akhir'];
+                    $idjadwal = $data['id_jadwal'];
+                    $penguji_1 = $data['penguji_1'];
+                    $penguji_2 = $data['penguji_2'];
 
                         $sql5  = $conn->query("SELECT * FROM `tb_user_mhs` WHERE id_user_mhs = '$id_mhs' ;");
                         $data5 = mysqli_fetch_assoc($sql5);
@@ -463,15 +472,19 @@ $(document).ready(function(){
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                
+                // Cek apakah $_GET['periode'] ada dan tidak null
+                $periode = isset($_GET['periode']) ? base64_decode($_GET['periode']) : ''; //line 475
+                
                 $month = date('m');
-                $no=1;
-                     $sql = $conn->query("SELECT * FROM `tb_jadwal_sidang` WHERE id_tugas_akhir IN (SELECT id_mhs FROM tb_tugas_akhir WHERE id_dosen = $id);");
-                       while($data = mysqli_fetch_assoc($sql)){
-                        $id_mhs = $data['id_tugas_akhir'];
-                        $idjadwal = $data['id_jadwal'];
-                        $penguji_1 = $data['penguji_1'];
-                        $penguji_2 = $data['penguji_2'];
+                $no = 1;
+                
+                $sql = $conn->query("SELECT * FROM `tb_jadwal_sidang` WHERE id_tugas_akhir IN (SELECT id_mhs FROM tb_tugas_akhir WHERE id_dosen = $id);");
+                while ($data = mysqli_fetch_assoc($sql)) {
+                    $id_mhs = $data['id_tugas_akhir'];
+                    $idjadwal = $data['id_jadwal'];
+                    $penguji_1 = $data['penguji_1'];
+                    $penguji_2 = $data['penguji_2'];
 
                         $sql5  = $conn->query("SELECT * FROM `tb_user_mhs` WHERE id_user_mhs = '$id_mhs' ;");
                         $data5 = mysqli_fetch_assoc($sql5);
