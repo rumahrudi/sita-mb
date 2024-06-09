@@ -268,16 +268,19 @@ $(document).ready(function(){
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 include 'config.php';
                 session_start();
-                $periode = base64_decode($_GET['periode']);
+                
+                // Cek apakah $_GET['periode'] ada dan tidak null
+                $periode = isset($_GET['periode']) ? base64_decode($_GET['periode']) : ''; // line 271
+                
                 $month = date('m');
-                $no=1;
-                     //$sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%d %M %Y') as `tanggal_sidang2` FROM `tb_jadwal_sidang` WHERE id_jadwal IN (SELECT id_jadwal FROM tb_penilaian_sidang WHERE `id_dosen` = '$id' AND `status` <> 'Belum Perbaikan') AND (penguji_1 = '$id' OR penguji_2 = '$id')");
-                     $sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%d %M %Y') as `tanggal_sidang2` FROM `tb_jadwal_sidang` WHERE penguji_1 = '$id' OR penguji_2 = '$id'");
-                       while($data = mysqli_fetch_assoc($sql)){
-                        $periodsidang = $data['periode_sidang'];
-                        $idjadwal = $data['id_jadwal'];
-                        $penguji_1 = $data['penguji_1'];
-                        $penguji_2 = $data['penguji_2'];
+                $no = 1;
+                
+                $sql = $conn->query("SELECT *, DATE_FORMAT(`tanggal_sidang`, '%d %M %Y') as `tanggal_sidang2` FROM `tb_jadwal_sidang` WHERE penguji_1 = '$id' OR penguji_2 = '$id'");
+                while ($data = mysqli_fetch_assoc($sql)) {
+                    $periodsidang = $data['periode_sidang'];
+                    $idjadwal = $data['id_jadwal'];
+                    $penguji_1 = $data['penguji_1'];
+                    $penguji_2 = $data['penguji_2'];
                         
                         $idmhs= $data['id_tugas_akhir'];
                         $iddosen = $data['penguji_1'];
@@ -441,7 +444,8 @@ $(document).ready(function(){
                               </button>
                               <ul class="dropdown-menu">
                               <li>
-                                <a href="viewer.php?file='.base64_encode($file_perbaikan).'" target="_blank" id="custId"><i class="fa fa-file"></i> Lihat Hasil File Perbaikan</a>
+                              
+                                <a href="viewer.php?file='.base64_encode($file_perbaikan).'" target="_blank" id="custId"><i class="fa fa-file"></i> Lihat Hasil File Perbaikan</a> 
                                 </li> 
                                 <li>
                                 <a href="" id="custId" data-toggle="modal" data-target="#myModalReviewer'.$idjadwal.'"><i class="fa fa-file"></i> Lihat Hasil Sidang</a>
