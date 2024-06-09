@@ -96,7 +96,7 @@ $nama = $_SESSION['nama'];
     <div class="login-logo">
       <!--<img src="img/logo2.png" height="60%" width="180" class="rounded" alt="..."><br>-->
       <a href="index.php?page=home"><b>SI</b>TA</a>
-      <h5>Sistem Informasi Tugas Akhir Teknik Informatika <?php echo $nama; ?></h5>
+      <h5>Sistem Informasi Tugas Akhir Manajemen Bisnis <?php echo $nama; ?></h5>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
