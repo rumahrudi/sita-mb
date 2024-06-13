@@ -72,7 +72,7 @@ $nama = $_SESSION['nama'];
           <ul class="nav navbar-nav">
             <li ><a href="index.php?page=identitas">Identitas <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Status Pendaftaran</a></li>
-            <li><a href="#">Jadwal Sidang</a></li>     
+            <li><a href="jadwal_sidang.php">Jadwal Sidang</a></li>     
           </ul>
         </div>
         <!-- /.navbar-collapse -->
