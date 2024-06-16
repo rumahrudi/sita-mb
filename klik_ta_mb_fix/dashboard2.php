@@ -76,7 +76,7 @@ if($_SESSION['status_mhs'] =="Non-aktif"){
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
             <li ><a href="index.php?page=identitas_mhs">Identitas <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Status Pendaftaran</a></li>
+            <!-- <li><a href="#">Status Pendaftaran</a></li> -->
             <li><a href="jadwal_sidang.php">Jadwal Sidang</a></li>     
           </ul>
         </div>

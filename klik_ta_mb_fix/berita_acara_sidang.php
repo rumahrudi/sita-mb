@@ -269,7 +269,7 @@ $periode_encoded = isset($_GET['periode']) ? $_GET['periode'] : null;
 $periode = $periode_encoded !== null ? base64_decode($periode_encoded) : '';
                 $month = date('m');
                 $no=1;
-                     $sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal_sidang` FROM `tb_jadwal_sidang` WHERE id_tugas_akhir = 480");
+                     $sql = $conn->query("SELECT *,DATE_FORMAT(`tanggal_sidang`, '%D %M %Y') as `tanggal_sidang` FROM `tb_jadwal_sidang` WHERE id_tugas_akhir = '$id'");
                        while($data = mysqli_fetch_assoc($sql)){
                         $periodsidang = $data['periode_sidang'];
                         $idjadwal = $data['id_jadwal'];
