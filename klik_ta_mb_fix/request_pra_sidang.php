@@ -197,7 +197,7 @@ $(document).ready(function(){
                 $data = mysqli_fetch_assoc($sql);
                 $id_dosen = $data['id_dosen'];
 
-                $sql2  = $conn->query("SELECT * FROM `tb_user` WHERE `id_user` = $id_dosen ;");
+                $sql2  = $conn->query("SELECT * FROM `tb_user` WHERE `id_user` = $id ;");
                 $data2 = mysqli_fetch_assoc($sql2);
                 $nama_dosen = $data2['nama'];
                 $email_dosen = $data2['email'];
